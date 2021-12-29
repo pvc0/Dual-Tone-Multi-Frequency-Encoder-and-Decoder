@@ -1,6 +1,6 @@
 function y = encode(seq)
 
-%Deklarierung und Initialisierung
+%declaration and initialisation
 z=zeros([1 45000]);
 t=1:5000;
 j=1;
