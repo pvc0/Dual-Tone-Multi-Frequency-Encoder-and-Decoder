@@ -1,6 +1,6 @@
 function seq = decode(y)
 
-%Frequenzen-Peaks from Fouriertransformation 
+%Frequences Peaks from Fouriertransformation 
 highf=[120.9, 133.6, 147.7, 163.3];
 lowf=[69.7, 77.0, 85.2, 94.1];
 
