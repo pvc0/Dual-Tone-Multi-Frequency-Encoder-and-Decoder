@@ -1,10 +1,10 @@
 function seq = decode(y)
 
-%Frequenzen-Peaks aus Fouriertransformation 
+%Frequenzen-Peaks from Fouriertransformation 
 highf=[120.9, 133.6, 147.7, 163.3];
 lowf=[69.7, 77.0, 85.2, 94.1];
 
-%Variablen
+%Variables
 diff1=zeros(1,4);
 diff2=zeros(1,3);
 seq=zeros(1,5);
@@ -17,26 +17,26 @@ for i=1:5
        n=length(y(j:j+4999));
        ft=fft(yf, n);
        ft=ft(1:(length(ft)/2));
-     %alle Peaks finden
+     %finding all peaks
        [p, indp]=findpeaks(abs(ft));
-     %2 größte Peaks = 2 höchste Frequenzen
+     %two highest frequences
        [~, indpMax]=maxk(p, 2);
        peak12=[indp(indpMax(1)), indp(indpMax(2))];
        peak12=sort(peak12);
 
-    %low frequency und Auswahl kleinste Differenz
+    %low frequency 
     for m=1:4
         diff1(m)=abs(peak12(1)-lowf(m));
     end
     [~, idlow]=min(diff1);
 
-    %high frequency und Auswahl kleinste Differenz
+    %high frequency 
     for k=1:3
         diff2(k)=abs(peak12(2)-highf(k));
     end
     [~, idhigh]=min(diff2);
 
-    %Zahlen zuordnen über if-else
+    %assigning numbers
     if idlow==1
         if idhigh==1
             seq(i)=1;
